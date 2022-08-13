@@ -50,7 +50,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.LATEST_SI_RELEASE }}
-          draft: true
           name: v${{ env.LATEST_SI_RELEASE }}
           body: |
             See [Simpleicons release](https://github.com/simple-icons/simple-icons/releases/tag/${{ env.LATEST_SI_RELEASE }})
