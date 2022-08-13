@@ -1,0 +1,19 @@
+{
+    "name": "icons-simpleicons",
+    "version": "7.6.0",
+    "description": "",
+    "scripts": {
+        "build": "webpack"
+    },
+    "dependencies": {
+        "simple-icons": "^7.6.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@babel/preset-env": "^7.18.10",
+        "@babel/register": "^7.18.9",
+        "svgson": "^5.2.1",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    }
+}
