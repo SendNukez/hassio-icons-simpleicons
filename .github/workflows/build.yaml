@@ -1,0 +1,54 @@
+on:
+  push:
+    paths:
+      - "latest-simpleicons.txt"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+
+      - name: Read latest version
+        run: |
+          LATEST_SI_RELEASE=$(< latest-simpleicons.txt)
+
+          echo "LATEST_SI_RELEASE<<EOF" >> $GITHUB_ENV
+          echo "$LATEST_SI_RELEASE" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "15"
+
+      - name: Build Webpack
+        run: |
+          npm install
+          npm i simple-icons@${{ env.LATEST_SI_RELEASE }}
+          npm run build
+
+      - name: Set package.json version
+        run: |
+          sed -i 's/"version":.*",/"version": "${{ env.LATEST_SI_RELEASE }}",/' package.json
+
+      - name: Commit
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "github-actions"
+
+          git add .
+          git commit --allow-empty -m "Release v${{ env.LATEST_SI_RELEASE }}"
+          git push
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.LATEST_SI_RELEASE }}
+          draft: true
+          name: v${{ env.LATEST_SI_RELEASE }}
+          body: |
+            See [Simpleicons release](https://github.com/simple-icons/simple-icons/releases/tag/${{ env.LATEST_SI_RELEASE }})
