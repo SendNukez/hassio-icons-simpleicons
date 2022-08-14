@@ -19,7 +19,7 @@ const config = {
     entry: path.resolve(__dirname, "src/main.js"),
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "simple-icons.js"
+        filename: "icons-simpleicons.js"
     },
     devtool: "inline-source-map",
     plugins: [

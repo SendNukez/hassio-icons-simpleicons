@@ -2,8 +2,8 @@ const icons = process.env.ICONS;
 const iconsetName = "si";
 
 async function getIcon(name) {
-    if (icons[name] != null) {
-        console.log(`Icon "${name}" not available`);
+    if (icons[name] == null) {
+        console.error(`Icon "${name}" not available`);
         return "";
     }
 
