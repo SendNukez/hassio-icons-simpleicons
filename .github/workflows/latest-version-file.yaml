@@ -1,4 +1,4 @@
-name: Get latest release version
+name: Get latest Simpleicons version
 on:
   workflow_dispatch:
   schedule:
