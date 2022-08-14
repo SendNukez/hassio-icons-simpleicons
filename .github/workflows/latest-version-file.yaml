@@ -1,5 +1,6 @@
 name: Get latest release version
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 10 * * *"
 jobs:
@@ -14,8 +15,7 @@ jobs:
 
       - name: Fetch release version
         run: |
-          curl -sL https://api.github.com/repos/swagger-api/simple-icons/simple-icons/latest | \
-          jq -r ".tag_name" > latest-simpleicons.txt
+          curl -sL https://api.github.com/repos/simple-icons/simple-icons/releases | jq -r ".[0].tag_name" > latest-simpleicons.txt
 
       - name: Check for modified files
         id: git-check
