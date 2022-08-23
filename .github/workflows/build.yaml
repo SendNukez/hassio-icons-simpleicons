@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "versions/*"
+      - "versions/*.txt"
 jobs:
   build:
     runs-on: ubuntu-latest
