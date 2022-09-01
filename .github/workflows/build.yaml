@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "versions/*.txt"
+      - "**.version.txt"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
 
       - name: Read latest version
         run: |
-          LATEST_SI_RELEASE=$(< versions/simpleicons.txt)
+          LATEST_SI_RELEASE=$(< versions/simpleicons.version.txt)
 
           echo "LATEST_SI_RELEASE<<EOF" >> $GITHUB_ENV
           echo "$LATEST_SI_RELEASE" >> $GITHUB_ENV

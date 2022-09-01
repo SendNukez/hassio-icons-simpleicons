@@ -15,7 +15,7 @@ jobs:
 
       - name: Fetch release version
         run: |
-          curl -sL https://api.github.com/repos/simple-icons/simple-icons/releases | jq -r ".[0].tag_name" > versions/simpleicons.txt
+          curl -sL https://api.github.com/repos/simple-icons/simple-icons/releases | jq -r ".[0].tag_name" > versions/simpleicons.version.txt
 
       - name: Check for modified files
         id: git-check
@@ -28,5 +28,5 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
 
-          git commit -am "Simpleicons Release v$(< versions/simpleicons.txt)"
+          git commit -am "Simpleicons Release v$(< versions/simpleicons.version.txt)"
           git push
