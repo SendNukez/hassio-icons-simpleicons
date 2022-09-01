@@ -43,6 +43,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Pull
+        run: |
+          git pull
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
