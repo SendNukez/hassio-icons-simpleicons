@@ -12,17 +12,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
 
       - name: Fetch release version
         id: get-version
         run: |
           version=$(curl -sL https://api.github.com/repos/simple-icons/simple-icons/releases | jq -r ".[0].tag_name")
 
-          echo ::set-output name=version::${version}
           echo $version > simpleicons.latest.txt
+          echo ::set-output name=version::${version}
 
       - name: Check for modified files
         id: git-check
@@ -45,9 +42,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
