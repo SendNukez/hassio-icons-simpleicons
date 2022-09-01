@@ -22,7 +22,7 @@ jobs:
           version=$(curl -sL https://api.github.com/repos/simple-icons/simple-icons/releases | jq -r ".[0].tag_name")
 
           echo ::set-output name=version::${version}
-          echo $version > versions/simpleicons.txt
+          echo $version > simpleicons.latest.txt
 
       - name: Check for modified files
         id: git-check
@@ -35,7 +35,7 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "github-actions"
 
-          git commit -am "Simpleicons Release v$(< versions/simpleicons.txt)"
+          git commit -am "Simpleicons Release v${{ steps.get-version.outputs.version }}"
           git push
 
   build:
