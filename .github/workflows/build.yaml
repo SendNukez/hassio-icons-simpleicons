@@ -60,7 +60,7 @@ jobs:
 
       - name: Set package.json version
         run: |
-          npm version ${{ needs.get-version.outputs.version }}
+          npm version -commit-hooks false -git-tag-version false ${{ needs.get-version.outputs.version }}
 
       - name: Commit
         run: |
