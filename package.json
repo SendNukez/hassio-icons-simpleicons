@@ -1,12 +1,12 @@
 {
     "name": "icons-simpleicons",
-    "version": "8.11.0",
+    "version": "8.12.1",
     "description": "",
     "scripts": {
         "build": "webpack"
     },
     "dependencies": {
-        "simple-icons": "^8.11.0"
+        "simple-icons": "^8.12.1"
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
