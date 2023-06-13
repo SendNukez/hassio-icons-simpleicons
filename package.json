@@ -6,6 +6,7 @@
         "build": "webpack"
     },
     "dependencies": {
+        "json5": "^2.2.2",
         "simple-icons": "^9.1.0"
     },
     "devDependencies": {
@@ -13,7 +14,7 @@
         "@babel/preset-env": "^7.18.10",
         "@babel/register": "^7.18.9",
         "svgson": "^5.2.1",
-        "webpack": "^5.74.0",
+        "webpack": "^5.86.0",
         "webpack-cli": "^4.10.0"
     }
 }
