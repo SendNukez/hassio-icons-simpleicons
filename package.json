@@ -1,13 +1,13 @@
 {
     "name": "hassio-icons-simpleicons",
-    "version": "13.17.0",
+    "version": "13.18.0",
     "description": "",
     "scripts": {
         "build": "webpack"
     },
     "dependencies": {
         "json5": "^2.2.2",
-        "simple-icons": "^13.17.0"
+        "simple-icons": "^13.18.0"
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
